@@ -95,7 +95,7 @@ function sendQuiz(sender, quiz) {
 						return {
 							"type": "postback",
 							"title": option.title,
-							"payload": option.value
+							"payload": option.value ? "true" : "false"
 						}
 					})
 				}]
