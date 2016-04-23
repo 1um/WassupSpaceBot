@@ -57,6 +57,20 @@ var templates = [
         })
     }
   },
+  {
+    keywordGroups: [["how many", "now"], ["people","human", "humans", "astronauts", "cosmonauts"], ["space"]],
+    present: function(presenter){
+        return presenter.showAutor(autors.nasa).then(function(){
+          return presenter.showText("There are 6 people in space right now. More info here:");
+        }).then(function(){
+          return presenter.showText("http://www.howmanypeopleareinspacerightnow.com/");
+        }).then(function(){
+           return presenter.showAutor(alien.nasa).then(function(){
+           }).then(function(){
+          return presenter.showText("Hmmm... Are you sure they are alone?");
+        })
+    }
+  },
 ]
 
 exports.match = function(str){
