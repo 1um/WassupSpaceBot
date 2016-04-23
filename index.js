@@ -1,6 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
+var syncRequest = require('sync-request')
 var emoji = require('node-emoji');
 var app = express()
 var core = require('./core');
@@ -72,7 +73,7 @@ function sendText(sender, text) {
 	messageData = {
 		text:text
 	}
-	await sendToUser(messageData);
+	sendToUser(messageData);
 }
 
 function sendQuiz(sender) {
@@ -97,7 +98,7 @@ function sendQuiz(sender) {
 			}
 		}
 	}
-	await sendToUser(messageData);
+	sendToUser(messageData);
 }
 
 function sendImage(sender, url) {
@@ -109,30 +110,28 @@ function sendImage(sender, url) {
       }
     }
 	}
-	await sendToUser(messageData);
+	sendToUser(messageData);
 }
 
 function sendToUser(sender, messageData){
-	return new Promise(function(resolve, reject) {
-		request({
-			url: 'https://graph.facebook.com/v2.6/me/messages',
-			qs: {access_token:token},
-			method: 'POST',
-			json: {
-				recipient: {id: sender},
-				message: messageData,
-			}
-		}, function(error, response, body) {
-			if (error) {
-				reject(error);
-				console.log('Error sending messages: ', error)
-			} else if (response.body.error) {
-				reject(response.body.error);
-				console.log('Error: ', response.body.error)
-			}else{
-				resolve(response.body);
-			}
-		});
+	syncRequest({
+		url: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {access_token:token},
+		method: 'POST',
+		json: {
+			recipient: {id: sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+			reject(error);
+			console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+			reject(response.body.error);
+			console.log('Error: ', response.body.error)
+		}else{
+			resolve(response.body);
+		}
 	});
 }
 

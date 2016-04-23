@@ -1,17 +1,16 @@
 {
-  "name": "secretbots",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "node-emoji": "^1.3.0",
-    "request": "^2.71.0"
-  }
+	"name": "secretbots",
+	"version": "1.0.0",
+	"license": "ISC",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"body-parser": "^1.15.0",
+		"express": "^4.13.4",
+		"node-emoji": "^1.3.0",
+		"request": "^2.71.0",
+		"sync-request": "^3.0.0"
+	}
 }
