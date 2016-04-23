@@ -85,6 +85,19 @@ var templates = [
         })
     }
   },
+  {
+    keywordGroups: [["question"], ["Life", "Universe", "Everything"]],
+    present: function(presenter){
+        return presenter.showAutor(autors.space).then(function(){
+          return presenter.showText("Well, let me think ...");
+        }).then(function(){
+          return presenter.showText("Hmmm ...");
+        })
+        }).then(function(){
+          return presenter.showImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Answer_to_Life.png/220px-Answer_to_Life.png");
+        })
+    }
+  },
 ]
 
 exports.match = function(str){
