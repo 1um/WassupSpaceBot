@@ -93,6 +93,8 @@ var templates = [
         }).then(function(){
           return presenter.showText("Hmmm ...");
         }).then(function(){
+          return presenter.showText("My answer is ...");
+        }).then(function(){
           return presenter.showImage("https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Answer_to_Life.png/220px-Answer_to_Life.png");
         })
     }
