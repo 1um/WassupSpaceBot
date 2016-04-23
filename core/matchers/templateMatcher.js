@@ -66,7 +66,6 @@ var templates = [
           return presenter.showText("http://www.howmanypeopleareinspacerightnow.com/");
         }).then(function(){
            return presenter.showAutor(alien.nasa).then(function(){
-           }).then(function(){
           return presenter.showText("Hmmm... Are you sure they are alone?");
         })
     }
