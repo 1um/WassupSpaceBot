@@ -1,6 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
+var emoji = require('node-emoji');
 var app = express()
 
 app.set('port', (process.env.PORT || 5000))
@@ -32,24 +33,38 @@ app.post('/webhook/', function (req, res) {
 		sender = event.sender.id
 		if (event.message && event.message.text) {
 			text = event.message.text
-			if (text === 'Generic') {
-				sendGenericMessage(sender)
+			if (text === 'Q') {
+				sendQuiz(sender)
 				continue
 			}
-			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+			else if (text === 'I') {
+				sendImage(sender, "http://www.datacosmos.com/wp-content/uploads/2013/10/cosmos2.jpg")
+				continue
+			}
+			else if (text === 'V') {
+				sendText(sender, "https://www.youtube.com/watch?v=GJ1iOi-Bfho")
+				continue
+			}
+			sendText(sender, text.substring(0, 200))
 		}
 		if (event.postback) {
 			text = JSON.stringify(event.postback)
-			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+			if(text.indexOf("true") > -1) {
+				sendText(sender, "You are right! :)")
+			}
+			else 
+			{
+				sendText(sender, "You are wrong! :(")
+			}
 			continue
 		}
 	}
 	res.sendStatus(200)
 })
 
-var token = ""
+var token = "CAAH0CIfLMaoBALyKiSRfSxmYHZCfbj4O60nrl4lu0eGUIBxZApjNAfYzsGZCxu637dQP4MfTpe8gegC2LwRZB7JF6lNbxKWUTYeaKR7ZCouVNL12LhHDsz5dFrjVyrbVZBKjQGFC9o5zy1aDrZCx4CMZCVEwBbGkhjWA4q8HTogXXK0yRwQKJvgEA8Uiqe6SNbUZD"
 
-function sendTextMessage(sender, text) {
+function sendText(sender, text) {
 	messageData = {
 		text:text
 	}
@@ -57,15 +72,10 @@ function sendTextMessage(sender, text) {
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token:token},
 		method: 'POST',
-		encoding: null,
-		json: true,
-    headers: {
-        "content-type": "application/json",
-    },
-    body: JSON.stringify({
+		json: {
 			recipient: {id:sender},
 			message: messageData,
-		})
+		}
 	}, function(error, response, body) {
 		if (error) {
 			console.log('Error sending messages: ', error)
@@ -75,37 +85,53 @@ function sendTextMessage(sender, text) {
 	})
 }
 
-function sendGenericMessage(sender) {
+function sendQuiz(sender) {
 	messageData = {
 		"attachment": {
 			"type": "template",
 			"payload": {
 				"template_type": "generic",
 				"elements": [{
-					"title": "First card",
-					"subtitle": "Element #1 of an hscroll",
-					"image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+					"title": "Question?",
+					"image_url": "http://p.fod4.com/p/channels/nqgbp/profile/kbVD8kNhRZiuH8hSi0dt_Alf.jpg",
 					"buttons": [{
-						"type": "web_url",
-						"url": "https://www.messenger.com",
-						"title": "web url"
+						"type": "postback",
+						"title": "Answer 1",
+						"payload": "true",
 					}, {
 						"type": "postback",
-						"title": "Postback",
-						"payload": "Payload for first element in a generic bubble",
-					}],
-				}, {
-					"title": "Second card",
-					"subtitle": "Element #2 of an hscroll",
-					"image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-					"buttons": [{
-						"type": "postback",
-						"title": "Postback",
-						"payload": "Payload for second element in a generic bubble",
+						"title": "Answer 2",
+						"payload": "false",
 					}],
 				}]
 			}
 		}
+	}
+	request({
+		url: 'https://graph.facebook.com/v2.6/me/messages',
+		qs: {access_token:token},
+		method: 'POST',
+		json: {
+			recipient: {id:sender},
+			message: messageData,
+		}
+	}, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+			console.log('Error: ', response.body.error)
+		}
+	})
+}
+
+function sendImage(sender, url) {
+	messageData = {
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":url
+      }
+    }	
 	}
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
