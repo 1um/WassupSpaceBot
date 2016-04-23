@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 var request = require('request')
 var emoji = require('node-emoji');
 var app = express()
+var core = require('./core');
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -32,27 +33,30 @@ app.post('/webhook/', function (req, res) {
 		event = req.body.entry[0].messaging[i]
 		sender = event.sender.id
 		if (event.message && event.message.text) {
-			text = event.message.text
-			if (text === 'Q') {
-				sendQuiz(sender)
-				continue
+
+			var presenter = {
+			  showAutor: function(autor){
+			    sendText(sender, autor.emoji +' /'+autor.name+'/');
+			  },
+			  showText: function(text){
+					sendText(sender, text);
+				},
+			  showImage: function(url){
+					sendImage(sender, url);
+				},
+			  showVideo: function(url){
+					sendText(sender, url);
+				}
 			}
-			else if (text === 'I') {
-				sendImage(sender, "http://www.datacosmos.com/wp-content/uploads/2013/10/cosmos2.jpg")
-				continue
-			}
-			else if (text === 'V') {
-				sendText(sender, "https://www.youtube.com/watch?v=GJ1iOi-Bfho")
-				continue
-			}
-			sendText(sender, text.substring(0, 200))
+
+			core.parse(event.message.text, presenter);
 		}
 		if (event.postback) {
 			text = JSON.stringify(event.postback)
 			if(text.indexOf("true") > -1) {
 				sendText(sender, "You are right! :)")
 			}
-			else 
+			else
 			{
 				sendText(sender, "You are wrong! :(")
 			}
@@ -131,7 +135,7 @@ function sendImage(sender, url) {
       "payload":{
         "url":url
       }
-    }	
+    }
 	}
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
