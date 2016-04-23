@@ -36,10 +36,8 @@ var templates = [
           return presenter.showText("An eclipse is an astronomical event that occurs when an astronomical object is temporarily obscured, either by passing into the shadow of another body or by having another body pass between it and the viewer.");
         }).then(function(){
           return presenter.showText("The next solar eclipse will be September 1, 2016.");
-        })
          }).then(function(){
           return presenter.showText("The next lunar eclipse will be September 16, 2016.");
-        })
         }).then(function(){
           return presenter.showImage("http://www.space.com/images/i/000/050/427/original/lunar-eclipse-2000-espenak.jpg");
         })
