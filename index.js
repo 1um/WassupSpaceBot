@@ -40,16 +40,16 @@ app.post('/webhook/', function (req, res) {
 
 			var presenter = {
 			  showAutor: function(autor){
-			    sendText(sender, autor.emoji +' /'+autor.name+'/');
+			    return sendText(sender, autor.emoji +' /'+autor.name+'/');
 			  },
 			  showText: function(text){
-					sendText(sender, text);
+					return sendText(sender, text);
 				},
 			  showImage: function(url){
 					return sendImage(sender, url);
 				},
 			  showVideo: function(url){
-					sendText(sender, url);
+					return sendText(sender, url);
 				}
 			}
 
@@ -76,21 +76,7 @@ function sendText(sender, text) {
 	messageData = {
 		text:text
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	return sendToUser(sender,messageData)
 }
 
 function sendQuiz(sender) {
@@ -115,21 +101,7 @@ function sendQuiz(sender) {
 			}
 		}
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	return sendToUser(sender,messageData)
 }
 
 function sendImage(sender, url) {
