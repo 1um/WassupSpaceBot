@@ -21,7 +21,8 @@ var presenter = {
   },
   showText: promiseLog,
   showImage: promiseLog,
-  showVideo: promiseLog
+  showVideo: promiseLog,
+  showQuiz: promiseLog
 }
 
 process.stdout.write("-> ");

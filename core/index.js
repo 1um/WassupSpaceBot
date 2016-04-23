@@ -4,7 +4,7 @@ var matchers = require('./matchers');
 exports.parse = function(message, presenter){
   var matches = [];
   matchers.list.forEach(function(matcher) {
-    matches = matches.concat(matcher.match(message));
+    matches = matches.concat(matcher.match(message)||[]);
   })
 
   matches

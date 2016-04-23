@@ -50,6 +50,9 @@ app.post('/webhook/', function (req, res) {
 				},
 			  showVideo: function(url){
 					return sendText(sender, url);
+				},
+				showQuiz: function(quiz){
+					return sendQuiz(sender, quiz);
 				}
 			}
 
@@ -79,24 +82,22 @@ function sendText(sender, text) {
 	return sendToUser(sender,messageData)
 }
 
-function sendQuiz(sender) {
+function sendQuiz(sender, quiz) {
 	messageData = {
 		"attachment": {
 			"type": "template",
 			"payload": {
 				"template_type": "generic",
 				"elements": [{
-					"title": "Question?",
+					"title": quiz.question,
 					"image_url": "http://p.fod4.com/p/channels/nqgbp/profile/kbVD8kNhRZiuH8hSi0dt_Alf.jpg",
-					"buttons": [{
-						"type": "postback",
-						"title": "Answer 1",
-						"payload": "true",
-					}, {
-						"type": "postback",
-						"title": "Answer 2",
-						"payload": "false",
-					}],
+					"buttons": quiz.options.map(function(option){
+						return {
+							"type": "postback",
+							"title": option.title,
+							"payload": option.value
+						}
+					})
 				}]
 			}
 		}

@@ -1,3 +1,4 @@
 var templateMatcher = require('./templateMatcher');
+var quizMatcher = require('./quizMatcher');
 
-exports.list = [templateMatcher];
+exports.list = [templateMatcher, quizMatcher];
