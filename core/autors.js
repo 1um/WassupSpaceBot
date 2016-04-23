@@ -4,7 +4,7 @@ exports.list = {
     name: 'The space'
   },
   iss: {
-    image: "https://pp.vk.me/c633128/v633128068/263ff/ATpRkcfedb4.jpg",
+    image: "https://pp.vk.me/c633128/v633128068/2641d/bpepWK6uH6c.jpg",
     name: 'The International Space Station'
   },
   alien: {
@@ -12,7 +12,7 @@ exports.list = {
     name: 'The Stranger'
   },
   nasa: {
-    image: "http://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png",
+    image: "https://pp.vk.me/c633128/v633128068/26419/1dpgGmmOuoE.jpg",
     name: 'The NASA'
   },
   pluto: {
