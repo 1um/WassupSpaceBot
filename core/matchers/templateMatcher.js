@@ -99,6 +99,16 @@ var templates = [
         })
     }
   },
+  {
+    keywordGroups: [["breath", "oxygen", "air", "breathing"], ["iss","spase station"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.iss).then(function(){
+          return presenter.showText("Life support systems on the ISS provide oxygen, absorb carbon dioxide, and manage vaporous emissions from the astronauts themselves. More info:");
+        }).then(function(){
+          return presenter.showText("http://science.nasa.gov/science-news/science-at-nasa/2000/ast13nov_1/");
+        })
+    }
+  },
 ]
 
 exports.match = function(str){
