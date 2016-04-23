@@ -72,18 +72,19 @@ var templates = [
     }
   },
   {
-    keywordGroups: [["pluto"], ["planet"]],
+    keywordGroups: [["pluto"], ["planet", "what"]],
     present: function(presenter){
         return presenter.showAutor(autors.nasa).then(function(){
           return presenter.showText("Pluto is not called a planet anymore. More info here:");
         }).then(function(){
           return presenter.showText("http://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-pluto-k4.html");
         }).then(function(){
-          return presenter.showAutor(autors.alien);
+          return presenter.showAutor(autors.pluto);
         }).then(function(){
           return presenter.showText("But whyyyyyyyy? :(");
         })
     }
+  },
 ]
 
 exports.match = function(str){
