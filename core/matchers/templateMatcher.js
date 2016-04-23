@@ -2,35 +2,9 @@ var autors = require('../autors').list;
 
 var templates = [
   {
-    keywords: ["Sasha", "Alex", "Boss"],
+    keywordGroups: [["Sasha", "Alex", "Boss"], ["Photo","Image", "Avatar"]],
     present: function(presenter){
-      presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/10931657_860658840660717_3580588527443262148_o.jpg").then(function(){
-        presenter.showAutor(autors.space);
-      }).then(function(){
-        presenter.showText("Oleksandra Rohachova");
-      })
-    }
-  },
-  {
-    keywords: ["Pasha", "Pavlo", "Boy"],
-    present: function(presenter){
-      presenter.showAutor(autors.space).then(function(){
-        presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xap1/t31.0-8/10818485_755908891145243_9217941777292189676_o.jpg");
-      }).then(function(){
-        presenter.showText("Pavlo Razumovskyi");
-      })
-    }
-  },
-  {
-    keywords: ["Kate", "Kateryna", "Hot"],
-    present: function(presenter){
-      presenter.showAutor(autors.space).then(function(){
-        presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/1911202_1379633368982682_1729009569_o.jpg");
-      }).then(function(){
-        presenter.showText("Kateryna Khotkevych");
-      }).then(function(){
-        presenter.showVideo("Video here");
-      });
+      presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/10931657_860658840660717_3580588527443262148_o.jpg")
     }
   }
 ]
@@ -38,16 +12,19 @@ var templates = [
 exports.match = function(str){
   var matches = [];
   templates.forEach(function(template){
-    var keywordRate = 0;
-    template.keywords.forEach(function(keyword){
-      regexp = new RegExp(keyword, "i");
-      if(str.search(regexp)!=-1){
-        keywordRate+=1;
-      }
+    var eachGroupFind = false;
+    template.keywordGroups.forEach(function(group){
+      eachGroupFind = false;
+      group.forEach(function(keyword){
+        regexp = new RegExp(keyword, "i");
+        if(str.search(regexp)!=-1){
+          eachGroupFind = true;
+        }
+      });
     });
-    if(keywordRate>0){
+    if(eachGroupFind){
       matches.push({
-        rate: keywordRate/template.keywords.length,
+        rate: 1,
         present: template.present
       })
     }
