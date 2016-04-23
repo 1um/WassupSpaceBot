@@ -4,7 +4,7 @@ var templates = [
   {
     keywordGroups: [["Sasha", "Alex", "Boss"], ["Photo","Image", "Avatar"]],
     present: function(presenter){
-      presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/10931657_860658840660717_3580588527443262148_o.jpg")
+      presenter.showImage("http://placehold.it/"+Math.floor(Math.random()*1200)+"x"+Math.floor(Math.random()*800))
     }
   },
   {
