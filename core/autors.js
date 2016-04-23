@@ -1,10 +1,18 @@
 exports.list = {
   space: {
-    image: "https://pbs.twimg.com/profile_images/509771346302078977/BVnPFTOg_normal.jpeg",
+    image: "http://www.unoosa.org/res/timeline/index_html/space-2.jpg",
     name: 'The space'
   },
   iss: {
-    image: "http://www.pc-tablet.com/wp-content/uploads/2016/04/International-Space-Station-Facts-50x50.jpg",
+    image: "http://cdn2.ubergizmo.com/wp-content/uploads/2015/11/international-space-station.jpg",
     name: 'The International Space Station'
+  },
+  alien: {
+    image: "http://static.splashnology.com/articles/Creating_Cartoon_Characters/11.jpg",
+    name: 'The Stranger'
+  },
+  nasa: {
+    image: "http://placehold.it/350x150",
+    name: 'The NASA'
   },
 };
