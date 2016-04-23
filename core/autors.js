@@ -15,4 +15,8 @@ exports.list = {
     image: "http://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png",
     name: 'The NASA'
   },
+  pluto: {
+    image: "https://img.buzzfeed.com/buzzfeed-static/static/2015-10/28/11/campaign_images/webdr10/the-sad-pluto-meme-is-making-the-internet-weep-2-17072-1446047759-0_big.jpg",
+    name: 'Pluto'
+  },
 };
