@@ -4,9 +4,10 @@ var templates = [
   {
     keywords: ["Sasha", "Alex", "Boss"],
     present: function(presenter){
-      presenter.showAutor(autors.space);
-      presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/10931657_860658840660717_3580588527443262148_o.jpg");
-      presenter.showText("Oleksandra Rohachova");
+      presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/10931657_860658840660717_3580588527443262148_o.jpg").then(function(){
+        presenter.showAutor(autors.space);
+        presenter.showText("Oleksandra Rohachova");
+      })
     }
   },
   {
