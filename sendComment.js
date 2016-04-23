@@ -2,14 +2,14 @@ var request = require("request");
 var Promise = require("bluebird");
 
 
-function sendText(sender, text) {
+function sendText(text) {
 	messageData = {
 		text:text
 	}
 	return sendToUser(sender, messageData)
 }
 
-function sendImage(sender, url) {
+function sendImage(url) {
 	messageData = {
     "attachment":{
       "type":"image",
