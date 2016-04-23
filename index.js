@@ -145,16 +145,27 @@ function sendImage(sender, url) {
 }
 
 function sendToUser(sender, messageData){
-	return proRequest({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
+	return new Promise(function (resolve, reject) {
+		request({
+			url: 'https://graph.facebook.com/v2.6/me/messages',
+			qs: {access_token:token},
+			method: 'POST',
+			json: {
+				recipient: {id:sender},
+				message: messageData,
+			}
+		}, function(error, response, body) {
+			if (error) {
+				console.log('Error sending messages: ', error)
+				return reject();
+			} else if (response.body.error) {
+				console.log('Error: ', response.body.error)
+				return reject();
+			}
+			return resolve();
+		})
 	});
-}
+};
 
 // spin spin sugar
 app.listen(app.get('port'), function() {
