@@ -12,7 +12,7 @@ exports.list = {
     name: 'The Stranger'
   },
   nasa: {
-    image: "http://placehold.it/350x150",
+    image: "http://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png",
     name: 'The NASA'
   },
 };

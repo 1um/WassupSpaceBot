@@ -33,13 +33,25 @@ var templates = [
     keywordGroups: [["eclipse"], ["solar","sun", "moon", "lunar"]],
     present: function(presenter){
         return presenter.showAutor(autors.nasa).then(function(){
-          return presenter.showText("An eclipse is an astronomical event that occurs when an astronomical object is temporarily obscured, either by passing into the shadow of another body or by having another body pass between it and the viewer.");
+          return presenter.showText("- An eclipse is an astronomical event that occurs when an astronomical object is temporarily obscured, either by passing into the shadow of another body or by having another body pass between it and the viewer.");
         }).then(function(){
           return presenter.showText("The next solar eclipse will be September 1, 2016.");
          }).then(function(){
           return presenter.showText("The next lunar eclipse will be September 16, 2016.");
         }).then(function(){
           return presenter.showImage("http://www.space.com/images/i/000/050/427/original/lunar-eclipse-2000-espenak.jpg");
+        })
+    }
+  },
+  {
+    keywordGroups: [["our planet", "Earth", "home"], ["night","from space", "from the space", "look", "looks"]],
+    present: function(presenter){
+        return presenter.showAutor(autors.iss).then(function(){
+          return presenter.showText("Take a look:");
+        }).then(function(){
+          return presenter.showImage("https://i.ytimg.com/vi/wKIr9DEgiq4/maxresdefault.jpg");
+        }).then(function(){
+          return presenter.showText("Online view from The International Space Station https://www.youtube.com/watch?v=njCDZWTI-xg");
         })
     }
   },
