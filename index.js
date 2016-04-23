@@ -3,7 +3,6 @@ var bodyParser = require('body-parser')
 
 var request = require('request')
 var Promise = require("bluebird");
-var proRequest = Promise.promisifyAll(require('request'));
 
 var emoji = require('node-emoji');
 var app = express()
@@ -37,7 +36,7 @@ app.post('/webhook/', function (req, res) {
 		event = req.body.entry[0].messaging[i]
 		sender = event.sender.id
 		if (event.message && event.message.text) {
-
+			console.log(sender);
 			var presenter = {
 			  showAutor: function(autor){
 			    return sendImage(sender, autor.image).then(function(){
