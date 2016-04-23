@@ -44,14 +44,16 @@ var templates = [
     }
   },
   {
-    keywordGroups: [["our planet", "Earth", "home"], ["night","from space", "from the space", "look", "looks"]],
+    keywordGroups: [["our planet", "Earth", "home"], ["night","from space", "from the space", "look", "looks", "view"]],
     present: function(presenter){
         return presenter.showAutor(autors.iss).then(function(){
           return presenter.showText("Take a look:");
         }).then(function(){
           return presenter.showImage("https://i.ytimg.com/vi/wKIr9DEgiq4/maxresdefault.jpg");
         }).then(function(){
-          return presenter.showText("Online view from The International Space Station https://www.youtube.com/watch?v=njCDZWTI-xg");
+          return presenter.showText("Online view from The International Space Station:");
+           }).then(function(){
+          return presenter.showText("https://www.youtube.com/watch?v=njCDZWTI-xg");
         })
     }
   },

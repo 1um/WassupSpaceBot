@@ -4,7 +4,7 @@ exports.list = {
     name: 'The space'
   },
   iss: {
-    image: "http://cdn2.ubergizmo.com/wp-content/uploads/2015/11/international-space-station.jpg",
+    image: "https://pp.vk.me/c633128/v633128068/263ff/ATpRkcfedb4.jpg",
     name: 'The International Space Station'
   },
   alien: {
