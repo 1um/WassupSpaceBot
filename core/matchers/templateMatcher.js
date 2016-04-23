@@ -6,7 +6,19 @@ var templates = [
     present: function(presenter){
       presenter.showImage("https://scontent-waw1-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/10931657_860658840660717_3580588527443262148_o.jpg")
     }
-  }
+  },
+  {
+    keywordGroups: [["toilet", "pipi", "bahtrom", "potty", "poop"], ["astronauts","astronaut", "cosmonaut", "cosmonauts"]],
+    present: function(presenter){
+        presenter.showAutor(autors.iss).then(function(){
+          presenter.showText(
+            "- Oh, those human limitations... Tim Peake answers one of the most frequently asked question about space exploration. Speaking from the International Space Station, the British astronaut explains how he and his colleagues manage the bodily function using a machine with a suction tube:"
+          );
+        }).then(function(){
+          presenter.showText("https://www.youtube.com/watch?v=d4FqnPPJ-Vc");
+        })
+    }
+  },
 ]
 
 exports.match = function(str){
