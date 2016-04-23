@@ -1,12 +1,12 @@
 var request = require("request");
 var Promise = require("bluebird");
-
+var sendTo = '964112640362982';
 
 function sendText(text) {
 	messageData = {
 		text:text
 	}
-	return sendToUser(sender, messageData)
+	return sendToUser(sendTo, messageData)
 }
 
 function sendImage(url) {
@@ -18,7 +18,7 @@ function sendImage(url) {
       }
     }
 	}
-	return sendToUser(sender,messageData)
+	return sendToUser(sendTo,messageData)
 }
 
 function sendToUser(sender, messageData){
