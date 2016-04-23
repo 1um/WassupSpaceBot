@@ -6,13 +6,22 @@ var rl = readline.createInterface({
   output: process.stdout,
   terminal: false
 });
+
+function promiseLog(text){
+  return new Promise(function (resolve, reject) {
+    console.log(text);
+    resolve();
+  });
+}
+
+
 var presenter = {
   showAutor: function(autor){
-    console.log(autor.emoji +' /'+autor.name+'/');
+    return promiseLog(autor.emoji +' /'+autor.name+'/');
   },
-  showText: console.log,
-  showImage: console.log,
-  showVideo: console.log
+  showText: promiseLog,
+  showImage: promiseLog,
+  showVideo: promiseLog
 }
 
 process.stdout.write("-> ");
