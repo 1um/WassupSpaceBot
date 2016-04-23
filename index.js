@@ -40,7 +40,9 @@ app.post('/webhook/', function (req, res) {
 
 			var presenter = {
 			  showAutor: function(autor){
-			    return sendText(sender, autor.emoji +' /'+autor.name+'/');
+			    return sendImage(sender, autor.image).then(function(){
+			    	return sendText(sender, autor.name +" is answering:");
+			    });
 			  },
 			  showText: function(text){
 					return sendText(sender, text);
