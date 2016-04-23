@@ -72,21 +72,7 @@ function sendText(sender, text) {
 	messageData = {
 		text:text
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	await sendToUser(messageData);
 }
 
 function sendQuiz(sender) {
@@ -111,21 +97,7 @@ function sendQuiz(sender) {
 			}
 		}
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	await sendToUser(messageData);
 }
 
 function sendImage(sender, url) {
@@ -137,21 +109,31 @@ function sendImage(sender, url) {
       }
     }
 	}
-	request({
-		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			recipient: {id:sender},
-			message: messageData,
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
+	await sendToUser(messageData);
+}
+
+function sendToUser(sender, messageData){
+	return new Promise(function(resolve, reject) {
+		request({
+			url: 'https://graph.facebook.com/v2.6/me/messages',
+			qs: {access_token:token},
+			method: 'POST',
+			json: {
+				recipient: {id: sender},
+				message: messageData,
+			}
+		}, function(error, response, body) {
+			if (error) {
+				reject(error);
+				console.log('Error sending messages: ', error)
+			} else if (response.body.error) {
+				reject(response.body.error);
+				console.log('Error: ', response.body.error)
+			}else{
+				resolve(response.body);
+			}
+		});
+	});
 }
 
 // spin spin sugar
