@@ -2,6 +2,8 @@ var request = require("request");
 var Promise = require("bluebird");
 var sendTo = '964112640362982';
 
+var token = "CAAH0CIfLMaoBALyKiSRfSxmYHZCfbj4O60nrl4lu0eGUIBxZApjNAfYzsGZCxu637dQP4MfTpe8gegC2LwRZB7JF6lNbxKWUTYeaKR7ZCouVNL12LhHDsz5dFrjVyrbVZBKjQGFC9o5zy1aDrZCx4CMZCVEwBbGkhjWA4q8HTogXXK0yRwQKJvgEA8Uiqe6SNbUZD"
+
 function sendText(text) {
 	messageData = {
 		text:text
