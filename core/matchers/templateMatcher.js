@@ -149,7 +149,7 @@ exports.match = function(str){
         }
       });
       if(!eachGroupFind){
-        break;
+        return;
       }
     });
     if(eachGroupFind){
