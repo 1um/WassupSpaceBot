@@ -1,4 +1,5 @@
 var autors = require('../autors').list;
+var emoji = require('node-emoji');
 
 var images = [
       "http://snowbrains.com/wp-content/uploads/2013/04/9.jpg",
