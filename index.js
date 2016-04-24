@@ -52,7 +52,7 @@ app.post('/webhook/', function (req, res) {
 			  showVideo: function(url){
 					return sendText(sender, url);
 				},
-				showQuiz: function(quiz){
+			  showQuiz: function(quiz){
 					return sendQuiz(sender, quiz);
 				}
 			}
@@ -79,7 +79,7 @@ var token = "CAAH0CIfLMaoBALyKiSRfSxmYHZCfbj4O60nrl4lu0eGUIBxZApjNAfYzsGZCxu637d
 function sendText(sender, text) {
 	messageData = {
 		text:text
-	}
+	}s
 	return sendToUser(sender,messageData)
 }
 
