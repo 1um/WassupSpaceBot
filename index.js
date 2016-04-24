@@ -140,6 +140,24 @@ function sendShop(sender) {
                         "url": "http://shopnasa.com/accessories/",
                         "title": "View"
                     }],
+                },
+                {
+                    "title": "Mission Products",
+                    "image_url": "http://shopnasa.com/wp-content/uploads/2016/03/front-koozie-580x385.jpg",
+                    "buttons": [{
+                       "type": "web_url",
+                        "url": "http://shopnasa.com/missions/",
+                        "title": "View"
+                    }],
+                },
+                {
+                    "title": "Bookstore",
+                    "image_url": "http://shopnasa.com/wp-content/uploads/2015/09/The-Martian-hc1.jpg",
+                    "buttons": [{
+                       "type": "web_url",
+                        "url": "http://shopnasa.com/books-dvds/",
+                        "title": "View"
+                    }],
                 }]
             }
         }
