@@ -140,17 +140,15 @@ var templates = [
 exports.match = function(str){
   var matches = [];
   templates.forEach(function(template){
+    var eachGroupFind = false;
     template.keywordGroups.forEach(function(group){
-      var eachGroupFind = false;
+      eachGroupFind = false;
       group.forEach(function(keyword){
         regexp = new RegExp(keyword, "i");
         if(str.search(regexp)!=-1){
           eachGroupFind = true;
         }
       });
-      if(!eachGroupFind){
-        return;
-      }
     });
     if(eachGroupFind){
       matches.push({

@@ -8,7 +8,7 @@ exports.list = {
     name: 'The International Space Station'
   },
   alien: {
-    image: "http://static.splashnology.com/articles/Creating_Cartoon_Characters/11.jpg",
+    image: "https://pp.vk.me/c633128/v633128068/26432/hzxdux-NhzI.jpg",
     name: 'The Stranger'
   },
   nasa: {
