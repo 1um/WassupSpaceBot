@@ -128,9 +128,8 @@ var templates = [
 exports.match = function(str){
   var matches = [];
   templates.forEach(function(template){
-    var eachGroupFind = true;
     template.keywordGroups.forEach(function(group){
-      eachGroupFind = false;
+      var eachGroupFind = false;
       group.forEach(function(keyword){
         regexp = new RegExp(keyword, "i");
         if(str.search(regexp)!=-1){
