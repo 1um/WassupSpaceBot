@@ -54,6 +54,9 @@ app.post('/webhook/', function (req, res) {
 				},
 			  showQuiz: function(quiz){
 					return sendQuiz(sender, quiz);
+				},
+			  showShop: function(){
+					return showShop(sender);
 				}
 			}
 
@@ -103,6 +106,44 @@ function sendQuiz(sender, quiz) {
 			}
 		}
 	}
+	return sendToUser(sender,messageData)
+}
+
+function sendShop(sender) {
+	messageData = {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Apparel",
+                    "image_url": "http://shopnasa.com/wp-content/uploads/2015/08/Cobalt-Meatball-580x385.jpg",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "http://shopnasa.com/apparel/",
+                        "title": "View"
+                    }],
+                }, {
+                    "title": "Space Food",
+                    "image_url": "http://shopnasa.com/wp-content/uploads/2015/08/125030-580x497.jpg",
+                    "buttons": [{
+                       "type": "web_url",
+                        "url": "http://shopnasa.com/product-category/space-food/",
+                        "title": "View"
+                    }],
+                },
+                {
+                    "title": "Accessories",
+                    "image_url": "http://shopnasa.com/wp-content/uploads/2014/11/ITEM-425885-NASA-Meatball-on-chain-Keyring_clipped_rev_2-580x362.jpeg",
+                    "buttons": [{
+                       "type": "web_url",
+                        "url": "http://shopnasa.com/accessories/",
+                        "title": "View"
+                    }],
+                }]
+            }
+        }
+    }
 	return sendToUser(sender,messageData)
 }
 
