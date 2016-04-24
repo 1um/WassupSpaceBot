@@ -8,7 +8,7 @@ var templates = [
     }
   },
   {
-    keywordGroups: [["toilet", "pipi", "bahtrom", "potty", "poop"], ["astronauts","astronaut", "cosmonaut", "cosmonauts"]],
+    keywordGroups: [["toilet", "pipi", "bathrom", "potty", "poop"], ["astronauts","astronaut", "cosmonaut", "cosmonauts"]],
     present: function(presenter){
        return presenter.showAutor(autors.iss).then(function(){
           return presenter.showText(
