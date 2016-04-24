@@ -109,7 +109,7 @@ var templates = [
         })
     }
   },
-    {
+  {
     keywordGroups: [["shower", "cleaning", "bath"], ["astronauts","astronaut", "cosmonaut", "cosmonauts", "space"]],
     present: function(presenter){
        return presenter.showAutor(autors.iss).then(function(){
@@ -128,7 +128,7 @@ var templates = [
 exports.match = function(str){
   var matches = [];
   templates.forEach(function(template){
-    var eachGroupFind = false;
+    var eachGroupFind = true;
     template.keywordGroups.forEach(function(group){
       eachGroupFind = false;
       group.forEach(function(keyword){
@@ -137,6 +137,9 @@ exports.match = function(str){
           eachGroupFind = true;
         }
       });
+      if(!eachGroupFind){
+        break;
+      }
     });
     if(eachGroupFind){
       matches.push({
