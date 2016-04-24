@@ -39,8 +39,8 @@ app.post('/webhook/', function (req, res) {
 			console.log(sender);
 			var presenter = {
 			  showAutor: function(autor){
-			    return sendImage(sender, autor.image).then(function(){
-			    	return sendText(sender, autor.name +" is answering:");
+			    return sendText(sender, autor.name +" is answering:").then(function(){
+			    	return sendImage(sender, autor.image);
 			    });
 			  },
 			  showText: function(text){
