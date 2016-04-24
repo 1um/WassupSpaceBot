@@ -141,7 +141,7 @@ exports.match = function(str){
   var matches = [];
   templates.forEach(function(template){
     var eachGroupFind = false;
-    template.keywordGroups.forEach(function(group){
+    template.keywordGroups.every(function(group){
       eachGroupFind = false;
       group.forEach(function(keyword){
         regexp = new RegExp(keyword, "i");
@@ -149,9 +149,7 @@ exports.match = function(str){
           eachGroupFind = true;
         }
       });
-      if(!eachGroupFind){
-        break;
-      }
+      return eachGroupFind;
     });
     if(eachGroupFind){
       matches.push({

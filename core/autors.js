@@ -16,7 +16,11 @@ exports.list = {
     name: 'The NASA'
   },
   pluto: {
-    image: "https://img.buzzfeed.com/buzzfeed-static/static/2015-10/28/11/campaign_images/webdr10/the-sad-pluto-meme-is-making-the-internet-weep-2-17072-1446047759-0_big.jpg",
+    image: "https://pp.vk.me/c633128/v633128068/26447/8hrX0f_yOa0.jpg",
     name: 'Pluto'
+  },
+  comet: {
+    image: "https://pp.vk.me/c633128/v633128068/2643b/uPBWkFVlyqM.jpg",
+    name: 'The comet'
   },
 };
