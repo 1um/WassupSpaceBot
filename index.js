@@ -79,7 +79,7 @@ var token = "CAAH0CIfLMaoBALyKiSRfSxmYHZCfbj4O60nrl4lu0eGUIBxZApjNAfYzsGZCxu637d
 function sendText(sender, text) {
 	messageData = {
 		text:text
-	}s
+	}
 	return sendToUser(sender,messageData)
 }
 
