@@ -123,6 +123,18 @@ var templates = [
         })
     }
   },
+  {
+    keywordGroups: [["watch"], ["tv", "television", "program","programs"], ["astronauts","astronaut", "cosmonaut", "cosmonauts"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.iss).then(function(){
+          return presenter.showText("Sometimes astronauts watch TV programs.");
+        }).then(function(){
+          return presenter.showText("For example here astronauts to Watch World Cup aboard Space Station:");
+        }).then(function(){
+          return presenter.showText("http://www.nasa.gov/content/astronauts-to-watch-world-cup-aboard-space-station");
+        })
+    }
+  },
 ]
 
 exports.match = function(str){
