@@ -56,7 +56,7 @@ app.post('/webhook/', function (req, res) {
 					return sendQuiz(sender, quiz);
 				},
 			  showShop: function(){
-					return showShop(sender);
+					return sendShop(sender);
 				}
 			}
 
