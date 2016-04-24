@@ -1,7 +1,6 @@
 var autors = require('../autors').list;
 
 var images = [
-  { 
       "http://snowbrains.com/wp-content/uploads/2013/04/9.jpg",
       "https://i.ytimg.com/vi/XL5DjLPg7Ms/maxresdefault.jpg",
       "http://img0.mxstatic.com/wallpapers/6ed93476b4301bb18bf25d4bf7c09321_large.jpeg",
@@ -21,7 +20,7 @@ var images = [
       "https://upload.wikimedia.org/wikipedia/commons/8/8f/Southern_Lights.jpg",
       "http://www.artsfon.com/pic/201411/2560x1600/artsfon.com-32297.jpg",
       "http://i.jootix.com/o/unnamed--1571fae08d.jpg"
-  }
+  ]
 
 var templates = [
   {
@@ -158,12 +157,13 @@ var templates = [
         })
     }
   },
-    {
+  {
     keywordGroups: [["photo", "photography", "image", "picture"], ["random", "show"]],
     present: function(presenter){
        var image = images[Math.floor(Math.random() * images.length)];
        return presenter.showImage(image);
-  },
+    }
+  }
 ]
 
 exports.match = function(str){
