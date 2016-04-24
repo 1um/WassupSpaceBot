@@ -62,7 +62,6 @@ app.post('/webhook/', function (req, res) {
 					return sendDefault(sender);
 				}
 			}
-
 			core.parse(event.message.text, presenter);
 		}
 		if (event.postback) {
