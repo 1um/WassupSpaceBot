@@ -184,7 +184,7 @@ var templates = [
     keywordGroups: [["I love you"]],
     present: function(presenter){
        return presenter.showAutor(autors.space).then(function(){
-          return presenter.showText(emoji.emojify('The Universe loves you too, honey :heart:'));
+          return presenter.showText("The Universe loves you too, honey " + emoji.get(':heart:'));
         });
     }
   },
