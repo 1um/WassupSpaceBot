@@ -182,11 +182,13 @@ var templates = [
     }
   },
   {
-    keywordGroups: [["I love you"]],
+    keywordGroups: [["I love you", emoji.get(':heart:')]],
     present: function(presenter){
        return presenter.showAutor(autors.space).then(function(){
-          return presenter.showText("The Universe loves you too, honey " + emoji.get(':heart:'));
-        });
+          return presenter.showText("The Universe loves you too, honey!");
+        }).then(function(){
+         return presenter.showText(emoji.get(':heart:'));
+       });
     }
   },
   {
