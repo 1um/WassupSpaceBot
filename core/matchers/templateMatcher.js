@@ -109,6 +109,20 @@ var templates = [
         })
     }
   },
+    {
+    keywordGroups: [["shower", "cleaning", "bath"], ["astronauts","astronaut", "cosmonaut", "cosmonauts", "space"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.iss).then(function(){
+          return presenter.showText("Astronauts wash their hair with a 'rinseless' shampoo that was originally developed for hospital patients who were unable to take a shower. More info here:");
+        }).then(function(){
+          return presenter.showText("http://www.nasa.gov/audience/foreducators/stem-on-station/ditl_morning_routine");
+        }).then(function(){
+          return presenter.showText("And here astronaut Mike Fossum demonstrates how to shower in space:");
+        }).then(function(){
+          return presenter.showText("https://www.youtube.com/watch?v=tDbbJWKKQu0");
+        })
+    }
+  },
 ]
 
 exports.match = function(str){
