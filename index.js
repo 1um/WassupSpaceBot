@@ -91,7 +91,7 @@ function sendQuiz(sender, quiz) {
 				"template_type": "generic",
 				"elements": [{
 					"title": quiz.question,
-					"image_url": "http://p.fod4.com/p/channels/nqgbp/profile/kbVD8kNhRZiuH8hSi0dt_Alf.jpg",
+					"image_url": quiz.image,
 					"buttons": quiz.options.map(function(option){
 						return {
 							"type": "postback",

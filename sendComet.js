@@ -46,10 +46,10 @@ function sendToUser(sender, messageData){
 	});
 };
 
-sendImage("http://assets.mshanken.com/wso/Articles/2015/UN_Comet102915_1600.jpg").then(function(){
+sendImage("https://pp.vk.me/c633128/v633128068/2643b/uPBWkFVlyqM.jpg").then(function(){
   return sendText("Comet news!");
 }).then(function(){
-  return sendText("Some amazing news here!");
+  return sendText("Happy #EarthDay!\n'Look again at that dot, That's home... on a mote of dust suspended in a sunbeam.'"' -Carl Sagan");
 }).then(function(){
-  return sendImage("http://24space.ru/uploads/posts/2015-04/1429830878_spacex-reusable-rocket-test.jpg")
+  return sendImage("https://meridianes.files.wordpress.com/2011/07/iss022e080014.jpg")
 });
