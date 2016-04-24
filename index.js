@@ -57,6 +57,9 @@ app.post('/webhook/', function (req, res) {
 				},
 			  showShop: function(){
 					return sendShop(sender);
+				},
+			  showDefault: function(){
+					return sendDefault(sender);
 				}
 			}
 
@@ -82,6 +85,13 @@ var token = "CAAH0CIfLMaoBALyKiSRfSxmYHZCfbj4O60nrl4lu0eGUIBxZApjNAfYzsGZCxu637d
 function sendText(sender, text) {
 	messageData = {
 		text:text
+	}
+	return sendToUser(sender,messageData)
+}
+
+function sendDefault(sender) {
+	messageData = {
+		text: "I can't you help with this now :(\nAsk me something else!"
 	}
 	return sendToUser(sender,messageData)
 }

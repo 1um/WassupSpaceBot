@@ -158,7 +158,7 @@ var templates = [
     }
   },
   {
-    keywordGroups: [["photo", "photography", "image", "picture"], ["random", "show"]],
+    keywordGroups: [["photo", "photography", "image", "picture"], ["random", "show", "get"]],
     present: function(presenter){
        var image = images[Math.floor(Math.random() * images.length)];
        return presenter.showImage(image);
