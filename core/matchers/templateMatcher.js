@@ -149,6 +149,9 @@ exports.match = function(str){
           eachGroupFind = true;
         }
       });
+      if(!eachGroupFind){
+        break;
+      }
     });
     if(eachGroupFind){
       matches.push({
