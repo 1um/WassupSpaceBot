@@ -1,5 +1,28 @@
 var autors = require('../autors').list;
 
+var images = [
+  { 
+      "http://snowbrains.com/wp-content/uploads/2013/04/9.jpg",
+      "https://i.ytimg.com/vi/XL5DjLPg7Ms/maxresdefault.jpg",
+      "http://img0.mxstatic.com/wallpapers/6ed93476b4301bb18bf25d4bf7c09321_large.jpeg",
+      "https://www.nasa.gov/sites/default/files/thumbnails/image/nh-pluto-in-false-color.jpg",
+      "http://solarsystem.nasa.gov/images/galleries/nh-color-pluto-charon1.jpg",
+      "http://www.nasa.gov/sites/default/files/thumbnails/image/nh_01_stern_05_pluto_hazenew.jpg",
+      "http://www.jpl.nasa.gov/images/msl/20160129/pia20316-16.jpg",
+      "http://apod.nasa.gov/apod/image/0801/jupiterio_newhorizons.jpg",
+      "https://www.nasa.gov/sites/default/files/thumbnails/image/nh-surface.jpg",
+      "http://www.nasa.gov/sites/default/files/thumbnails/image/14797031062_4cbe0f218f_o.jpg",
+      "http://history.nasa.gov/ap11ann/kippsphotos/5903.jpg",
+      "http://inspired.com.ua/wp-content/uploads/2014/10/NEW_SLS_10x7_300.jpeg",
+      "http://blog.rtve.es/.a/6a014e6089cbd5970c01bb08855daa970d-600wi",
+      "http://www.asc-csa.gc.ca/images/ISS_crew_ISS_2009.jpg",
+      "http://www.dlr.de/dlr/en/Portaldata/1/Resources/Bilder/missionen/iss/galerien/iss/galerie_iss03.jpg",
+      "http://www.boeing.com/resources/boeingdotcom/space/international_space_station/images/iss_gallery_med_02_960x600.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8f/Southern_Lights.jpg",
+      "http://www.artsfon.com/pic/201411/2560x1600/artsfon.com-32297.jpg",
+      "http://i.jootix.com/o/unnamed--1571fae08d.jpg"
+  }
+
 var templates = [
   {
     keywordGroups: [["Sasha", "Alex", "Boss"], ["Photo","Image", "Avatar"]],
@@ -134,6 +157,12 @@ var templates = [
           return presenter.showText("http://www.nasa.gov/content/astronauts-to-watch-world-cup-aboard-space-station");
         })
     }
+  },
+    {
+    keywordGroups: [["photo", "photography", "image", "picture"], ["random", "show"]],
+    present: function(presenter){
+       var image = images[Math.floor(Math.random() * images.length)];
+       return presenter.showImage(image);
   },
 ]
 
