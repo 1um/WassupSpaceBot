@@ -42,16 +42,6 @@ var templates = [
     }
   },
   {
-    keywordGroups: [["eclipse"], ["solar","sun"], ["will", "next", "new"]],
-    present: function(presenter){
-        return presenter.showAutor(autors.nasa).then(function(){
-          return presenter.showText("The next solar eclipse will be September 1, 2016.\nDon’t miss it!");
-        }).then(function(){
-          return presenter.showImage("https://timedotcom.files.wordpress.com/2016/03/solar-eclipse-01.jpg?quality=75&strip=color&w=792");
-        })
-    }
-  },
-  {
     keywordGroups: [["eclipse"], ["solar","sun", "moon", "lunar"]],
     present: function(presenter){
         return presenter.showAutor(autors.nasa).then(function(){
@@ -162,6 +152,48 @@ var templates = [
     present: function(presenter){
        var image = images[Math.floor(Math.random() * images.length)];
        return presenter.showImage(image);
+    }
+  },
+  {
+    keywordGroups: [["hi", "hello", "good morning", "good evening", "good afternoon"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.space).then(function(){
+          return presenter.showText("Hello, human :)");
+        });
+    }
+  },
+  {
+    keywordGroups: [["bye", "goodbye", "see you", "have a nice day"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.space).then(function(){
+          return presenter.showText("I don't say 'goodbye'. A say 'see you soon'!");
+        });
+    }
+  },
+  {
+    keywordGroups: [["how are you", "wassup", "h r u", "h r y", "what's up"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.space).then(function(){
+          return presenter.showText("I'm fine. Catch selfie:")
+        }).then(function(){
+         return presenter.showImage("https://images.chesscomfiles.com/uploads/images_users/tiny_mce/Till_98/php4VgBId.jpeg");
+       });
+    }
+  },
+  {
+    keywordGroups: [["I love you"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.space).then(function(){
+          return presenter.showText(emoji.emojify('The Universe loves you too, honey :heart:'));
+        });
+    }
+  },
+  {
+    keywordGroups: [["42"]],
+    present: function(presenter){
+       return presenter.showAutor(autors.space).then(function(){
+          return presenter.showText("I very carefully checked everything and with all determinancy I declare that it and is the answer. It seems to me if to be with you absolutely fair, then all the matter is that you did not know in what a question.");
+        });
     }
   }
 ]

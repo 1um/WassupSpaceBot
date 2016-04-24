@@ -1,7 +1,7 @@
 exports.list = {
   space: {
-    image: "http://www.unoosa.org/res/timeline/index_html/space-2.jpg",
-    name: 'The space'
+    image: "https://pp.vk.me/c633128/v633128068/264de/g1INr1JY7is.jpg",
+    name: 'The universe'
   },
   iss: {
     image: "https://pp.vk.me/c633128/v633128068/2641d/bpepWK6uH6c.jpg",
