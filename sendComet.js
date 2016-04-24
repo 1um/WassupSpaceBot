@@ -49,7 +49,7 @@ function sendToUser(sender, messageData){
 sendImage("https://pp.vk.me/c633128/v633128068/2643b/uPBWkFVlyqM.jpg").then(function(){
   return sendText("Comet news!");
 }).then(function(){
-  return sendText("Happy #EarthDay!\n'Look again at that dot, That's home... on a mote of dust suspended in a sunbeam.'"' -Carl Sagan");
+  return sendText("Happy #EarthDay!\n'Look again at that dot, That's home... on a mote of dust suspended in a sunbeam.' -Carl Sagan");
 }).then(function(){
   return sendImage("https://meridianes.files.wordpress.com/2011/07/iss022e080014.jpg")
 });
